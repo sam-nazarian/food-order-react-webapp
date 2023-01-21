@@ -1,9 +1,10 @@
 // manage the cart where we render the cart
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 import Cart from './components/Cart/Cart';
+import CartProvider from './store/CardProvider';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -17,7 +18,7 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
 
       {/* name props which hold functions, starting with on. As they are similar to custom events  */}
@@ -25,7 +26,7 @@ function App() {
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 
