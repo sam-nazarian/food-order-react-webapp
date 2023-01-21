@@ -31,6 +31,7 @@ const CartProvider = (props) => {
   };
 
   const cartContext = {
+    // since these two are connected to each other & when one updates the other also updates, use a reducer instead of a state
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
