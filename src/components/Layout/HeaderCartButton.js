@@ -20,7 +20,7 @@ const HeaderCartButton = (props) => {
   const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''}`;
 
   useEffect(() => {
-    if (cartCtx.items.length === 0) {
+    if (items.length === 0) {
       return;
     }
 
@@ -28,7 +28,7 @@ const HeaderCartButton = (props) => {
 
     const timer = setTimeout(() => {
       setBtnIsHighlighted(false); //removes css class from rendered dom, cause css animations are only played when a class is added
-    }, 300);
+    }, 100);
 
     // clean up function
     return () => {

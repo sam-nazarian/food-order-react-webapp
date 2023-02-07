@@ -8,7 +8,7 @@ const Input = React.forwardRef((props, ref) => {
 
       {/* ...props.input spreads all objects inside the input obj, so it makes the input highly comfigrable from outside the component */}
       {/* e.g. {type: 'text'} is going to be  (type='text') */}
-      {/* ref is being forwarded form the parent elm to the native elm */}
+      {/* ref is being forwarded from the parent elm to the native elm */}
       <input ref={ref} {...props.input} />
     </div>
   );
