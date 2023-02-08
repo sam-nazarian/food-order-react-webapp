@@ -49,12 +49,8 @@ const Checkout = (props) => {
     }
 
     //Submit cart data (pass user data to Cart Component)
-    props.onConfirm({
-      name: enteredName,
-      street: enteredStreet,
-      city: enteredCity,
-      postalCode: enteredPostalCode,
-    });
+    // onConfirm is an async function
+    props.onConfirm({ name: enteredName, street: enteredStreet, city: enteredCity, postalCode: enteredPostalCode });
   };
 
   // Setting custom valid classes

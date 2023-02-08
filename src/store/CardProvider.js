@@ -66,6 +66,12 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (action.type === 'CLEAR') {
+    return defaultCartState;
+  }
+
+  return defaultCartState;
 };
 
 const CartProvider = (props) => {
@@ -79,12 +85,17 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: 'REMOVE', id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: 'CLEAR' });
+  };
+
   const cartContext = {
     // since these two are connected to each other & when one updates the other also updates, use a reducer instead of a state
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
 
   return <CartContext.Provider value={cartContext}>{props.children}</CartContext.Provider>;
